@@ -1,0 +1,33 @@
+void LongChar(char* str)
+{
+ if(str==NULL)
+  return;
+ int max=0;
+ int first=0;
+ int count=0;
+ for(int i=1;i<strlen(str);i++)
+  for(int k=0,j=0;j<strlen(str)-i;j++)
+  {
+   if(str[j]==str[i+j])k++;
+   else
+    k=0;
+   if(k>max)
+   {
+    max=k;
+    first=j-k+1;
+   }
+  }
+  if(max>0)
+  {
+   cout<<"long:"<<max<<endl;
+   for(;count<max;count++)
+    cout<<str[first+count];
+    cout<<endl;
+  }
+}
+int main()
+{
+ char* str="abcdabcabcd";
+ LongChar(str);
+ return 0;
+}
